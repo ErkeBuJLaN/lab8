@@ -17,6 +17,7 @@ def SquareEquation(a, b, c):
         return None
 
 # Вызвать функцию для решения уравнения 2*x^2+3*x-5=0
+#Функцию вызываем впринте
 Res = SquareEquation(2, 3, -5)
 
 if Res!=None:
