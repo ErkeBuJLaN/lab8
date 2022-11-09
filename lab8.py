@@ -1,19 +1,28 @@
-honey_positions = [
-    ("Мёд липовый", 3, 1250),
-    ("Мёд цветочный", 7, 1000),
-    ("Мёд гречишный", 6, 1300),
-    ("Донниковый мёд", 1, 1750),
-    ("Малиновый мёд", 10, 2000),
-]
-def print_check(honey_positions):
-    sum = 0  # переменная для накопления общей суммы
-    print("ООО Мед\n")
-    # в цикле будем выводить название, количество и цену
-    for honey in honey_positions:
-        name = honey[0]
-        amount = honey[1]
-        price = honey[2]
-        print(f"{name} ({amount} шт.) - {price} тг.")
-        sum += amount * price  # здесь же будем считать ещё и общую сумму
-    print(f"\nИтого: {sum} тг.")
-    print("Спасибо за покупку!")
+import math
+
+# Функция решения квадратного уравнения,
+# данная функция есть объемлющей для вложенной функции Disc().
+# Функция возвращает решение уравнения в виде списка
+def SquareEquation(a, b, c):
+    # Вложенная функция Disc() вычисления дискриминанта
+    def Disc(a, b, c):
+        d = b*b-4*a*c
+        return d
+
+    # Вычислить дискриминант
+    D = Disc(a, b, c)
+
+    if D>=0:
+        x1 = (-b - math.sqrt(D))/(2*a)
+        x2 = (-b + math.sqrt(D))/(2*a)
+        return [x1, x2]
+    else:
+        return None
+
+# Вызвать функцию для решения уравнения 2*x^2+3*x-5=0
+Res = SquareEquation(2, 3, -5)
+
+if Res!=None:
+    print('Result = ', Res)
+else:
+    print('The equation has no roots')
